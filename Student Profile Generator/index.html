@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Profile Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .student {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Profiles</h2>
+  <button onclick="displayStudents()">Display Students</button>
+  <div id="output"></div>
+
+  <script>
+    const students = [
+      { firstName: "Arinzechukwu", middleName: "Peter", lastName: "Okafor", age: 20, score: 88, courses: ["Mathematics", "Biology", "Chemistry", "English"] },
+      { firstName: "Abiola", middleName: "Simon", lastName: "Adedayo", age: 22, score: 76, courses: ["Economics", "English", "Commerce", "Mathematics"] },
+      { firstName: "Chukwugozie", middleName: "Andrew", lastName: "Umeh", age: 19, score: 91, courses: ["English", "Literature-in-English", "Mathematics", "History"] },
+      { firstName: "Etim", middleName: "Samuel", lastName: "Utibe-Abasi", age: 21, score: 83, courses: ["Computer Science", "Chemistry", "Further Mathematics", "Physics"] },
+      { firstName: "Umaru", middleName: "Musa", lastName: "Bello", age: 18, score: 95, courses: ["Geography", "Physics", "Mathematics", "English"] },
+      { firstName: "Ogochukwu", middleName: "James", lastName: "Nwankwo", age: 23, score: 68, courses: ["Igbo", "English", "History", "Mathematics"] },
+      { firstName: "Abimbola", middleName: "John", lastName: "Obaloluwa", age: 20, score: 90, courses: ["Yoruba", "Mathematics", "Government", "English"] },
+      { firstName: "Itoro", middleName: "Ubong Abasi", lastName: "Ebem", age: 22, score: 84, courses: ["Further Mathematics", "Fine Art", "Technical Drawing", "Physics"] },
+      { firstName: "Tunde", middleName: "Ayomide", lastName: "Olatunji", age: 19, score: 73, courses: ["Financial Accounting", "Commerce", "Economics", "English"] },
+      { firstName: "Chukwuebuka", middleName: "Thaddaeus", lastName: "Ezechukwu", age: 21, score: 87, courses: ["CRS", "Literture-in-English", "Government", "Mathematics"] },
+      { firstName: "James", middleName: "Jatau", lastName: "Barau", age: 20, score: 82, courses: ["English", "Mathematics", "Physics", "Chemistry"] },
+      { firstName: "Ibrahim", middleName: "Mohamed", lastName: "Usman", age: 18, score: 94, courses: ["Data Processing", "English", "Mathematcis", "Economics"] }
+    ];
+
+    function displayStudents() {
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = "";
+
+      students.map(({ firstName, middleName, lastName, age, score, courses }, index) => {
+        const studentDiv = document.createElement("div");
+        studentDiv.className = "student";
+        studentDiv.textContent = `${index + 1}. ${firstName} ${middleName} ${lastName} is ${age} years old and scored ${score}. He is taking: ${courses.join(", ")}.`;
+        outputDiv.appendChild(studentDiv);
+      });
+    }
+  </script>
+
+</body>
+</html>
